@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tran & Wong LLC — Legal Documents</title>
+  <meta name="description" content="Download legal document templates and firm-specific forms from Tran & Wong LLC." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E⚖️%3C/text%3E%3C/svg%3E" />
+  <style>
+    :root{
+      --bg:#0b0f14;            /* deep navy */
+      --panel:#101720;         /* panel background */
+      --muted:#7b8896;         /* secondary text */
+      --text:#eef2f6;          /* primary text */
+      --brand:#3aa0ff;         /* accent */
+      --brand-2:#7be0b8;       /* secondary accent */
+      --danger:#ff6b6b;
+      --radius:16px;
+      --shadow:0 8px 30px rgba(0,0,0,.35);
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:linear-gradient(180deg, #0b0f14 0%, #0c1117 100%);
+      color:var(--text); font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    }
+    a{color:var(--brand); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:5;
+      background:rgba(16,23,32,.7); backdrop-filter: blur(10px);
+      border-bottom:1px solid rgba(123,136,150,.15);
+    }
+    .wrap{max-width:1100px; margin:0 auto; padding:16px}
+    .topbar{display:flex; align-items:center; gap:14px; justify-content:space-between}
+    .brand{display:flex; align-items:center; gap:12px}
+    .logo{
+      width:42px; height:42px; display:grid; place-items:center;
+      border-radius:12px; background:linear-gradient(135deg,var(--brand),var(--brand-2));
+      box-shadow:var(--shadow);
+      font-size:22px;
+    }
+    .title{font-weight:700; letter-spacing:.3px}
+    .subtitle{color:var(--muted); font-size:.9rem}
+
+    nav{display:flex; gap:18px; align-items:center}
+    nav a{color:var(--text); opacity:.9}
+    nav a.active{color:var(--brand)}
+
+    /* Hero */
+    .hero{padding:42px 0 10px}
+    .hero h1{font-size: clamp(1.7rem, 2.6vw, 2.4rem); margin:.2rem 0}
+    .hero p{color:var(--muted); margin:.2rem 0 1rem}
+
+    /* Controls */
+    .controls{
+      display:grid; grid-template-columns: 1fr; gap:12px; margin:14px 0 6px;
+    }
+    .control-row{display:flex; gap:12px; flex-wrap:wrap}
+    .search{
+      flex:1 1 340px; position:relative
+    }
+    .search input{
+      width:100%; padding:14px 42px 14px 44px; border-radius:999px; border:1px solid rgba(123,136,150,.25);
+      background:#0e1520; color:var(--text); outline:none; box-shadow: inset 0 0 0 1px rgba(255,255,255,.02);
+    }
+    .search .icon{position:absolute; left:14px; top:50%; transform:translateY(-50%); opacity:.8}
+    .search .clear{position:absolute; right:10px; top:50%; transform:translateY(-50%); background:transparent; border:0; color:var(--muted); cursor:pointer}
+
+    .chips{display:flex; flex-wrap:wrap; gap:8px}
+    .chip{padding:8px 12px; border-radius:999px; border:1px solid rgba(123,136,150,.25); cursor:pointer; user-select:none; color:var(--muted)}
+    .chip[aria-pressed="true"]{background:linear-gradient(135deg, rgba(58,160,255,.18), rgba(123,224,184,.18)); color:var(--text); border-color:transparent}
+
+    .sort{margin-left:auto}
+    select{
+      appearance:none; -webkit-appearance:none; -moz-appearance:none;
+      background:#0e1520; color:var(--text); border:1px solid rgba(123,136,150,.25);
+      padding:10px 14px; border-radius:12px;
+    }
+
+    /* Grid */
+    .grid{display:grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap:16px; margin:16px 0 28px}
+    .card{
+      background:var(--panel); border:1px solid rgba(255,255,255,.06); border-radius:var(--radius); box-shadow:var(--shadow);
+      display:flex; flex-direction:column; overflow:hidden; min-height:184px
+    }
+    .card header{position:static; background:transparent; border:0}
+    .card .kind{
+      font-size:.8rem; color:var(--muted); padding:14px 16px 0
+    }
+    .doc-title{font-size:1.05rem; font-weight:700; padding:4px 16px; margin:0}
+    .meta{color:var(--muted); font-size:.87rem; padding:6px 16px 0}
+    .tags{padding:8px 16px; display:flex; gap:6px; flex-wrap:wrap}
+    .tag{font-size:.75rem; padding:4px 8px; border-radius:999px; background:#0e1520; border:1px solid rgba(255,255,255,.08); color:#c7d2e0}
+    .actions{margin-top:auto; display:flex; gap:10px; padding:12px 16px 16px}
+    .btn{
+      appearance:none; border:0; border-radius:12px; padding:10px 12px; cursor:pointer;
+      background:linear-gradient(135deg, rgba(58,160,255,.18), rgba(123,224,184,.18)); color:var(--text);
+    }
+    .btn.secondary{background:#0e1520; border:1px solid rgba(255,255,255,.1); color:#cfe7ff}
+    .btn:hover{filter:brightness(1.05)}
+
+    /* Info / Footer */
+    .info{display:grid; grid-template-columns: 1fr; gap:16px; margin:24px 0}
+    .panel{background:var(--panel); border:1px solid rgba(255,255,255,.06); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
+    .panel h3{margin-top:0}
+
+    footer{padding:24px 0; color:var(--muted); border-top:1px solid rgba(123,136,150,.15)}
+    .footer-grid{display:grid; grid-template-columns: 1fr; gap:12px}
+    .footnote{font-size:.85rem}
+
+    @media (min-width: 860px){
+      .controls{grid-template-columns: 1fr auto}
+      .info{grid-template-columns: 1.2fr .8fr}
+      .footer-grid{grid-template-columns: 1fr 1fr}
+    }
+  </style>
+</head>
+<body>
+  <header role="banner">
+    <div class="wrap topbar" aria-label="Site header">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">⚖️</div>
+        <div>
+          <div class="title">Tran &amp; Wong LLC</div>
+          <div class="subtitle">Client Document Center</div>
+        </div>
+      </div>
+      <nav aria-label="Primary">
+        <a class="active" href="#docs">Documents</a>
+        <a href="#request">Request a Document</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap" id="docs">
+    <section class="hero" aria-labelledby="page-title">
+      <h1 id="page-title">Download Legal Documents</h1>
+      <p>Browse firm-vetted forms and templates. Use the search and filters below to find what you need. Documents are provided in PDF and Word where available.</p>
+
+      <div class="controls" role="region" aria-label="Search and filter controls">
+        <div class="control-row">
+          <div class="search" role="search">
+            <span class="icon" aria-hidden="true">🔎</span>
+            <label class="visually-hidden" for="q">Search documents</label>
+            <input id="q" type="search" placeholder="Search by name, tag, or description…" autocomplete="off" aria-describedby="results-count" />
+            <button class="clear" id="clearSearch" aria-label="Clear search">✕</button>
+          </div>
+          <div class="chips" role="group" aria-label="Filter by category" id="chips">
+            <!-- chips injected by JS -->
+          </div>
+          <div class="sort">
+            <label for="sortSel" class="visually-hidden">Sort</label>
+            <select id="sortSel" aria-label="Sort documents">
+              <option value="recent">Most recent</option>
+              <option value="az">A → Z</option>
+              <option value="downloads">Most downloaded</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div aria-live="polite" id="results-count" style="color:var(--muted); margin: 6px 2px"></div>
+
+    <section class="grid" aria-label="Document results" id="grid">
+      <!-- cards injected by JS -->
+    </section>
+
+    <section class="info" id="request">
+      <article class="panel">
+        <h3>Request a Document</h3>
+        <p>Can’t find a specific form? Send us a request and our legal team will prepare it for you.</p>
+        <form id="requestForm" aria-label="Document request form">
+          <div class="control-row">
+            <label class="visually-hidden" for="name">Your name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" required style="flex:1; padding:12px; border-radius:10px; border:1px solid rgba(123,136,150,.25); background:#0e1520; color:var(--text)">
+            <label class="visually-hidden" for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="Email" required style="flex:1; padding:12px; border-radius:10px; border:1px solid rgba(123,136,150,.25); background:#0e1520; color:var(--text)">
+          </div>
+          <div style="margin-top:10px">
+            <label class="visually-hidden" for="detail">What do you need?</label>
+            <textarea id="detail" name="detail" rows="4" placeholder="Describe the document you need…" required style="width:100%; padding:12px; border-radius:12px; border:1px solid rgba(123,136,150,.25); background:#0e1520; color:var(--text)"></textarea>
+          </div>
+          <div class="actions">
+            <button class="btn" type="submit">Send Request</button>
+            <button class="btn secondary" type="reset">Reset</button>
+          </div>
+          <p id="reqStatus" role="status" aria-live="polite" style="color:var(--muted)"></p>
+        </form>
+      </article>
+      <aside class="panel" id="contact">
+        <h3>Contact & Office Info</h3>
+        <p><strong>Tran &amp; Wong LLC</strong><br />
+        200 Market Street, Suite 1200, Los Angeles, CA 90012<br />
+        <a href="tel:+12135551234" aria-label="Call our office">(213) 555‑1234</a> ·
+        <a href="mailto:documents@tranwonglaw.com" aria-label="Email our documents team">documents@tranwonglaw.com</a>
+        </p>
+        <p class="footnote">Office hours: Mon–Fri, 9am–5pm PT</p>
+      </aside>
+    </section>
+
+    <section class="panel footnote" style="margin:22px 0" aria-label="Disclaimer">
+      <strong>Disclaimer:</strong> Documents provided are general templates or firm-issued forms and do not constitute legal advice. Review your document with a Tran &amp; Wong attorney before use.
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid">
+      <div>© <span id="year"></span> Tran &amp; Wong LLC. All rights reserved.</div>
+      <div style="text-align:right">Privacy · Terms · <a href="#">Accessibility</a></div>
+    </div>
+  </footer>
+
+  <script>
+    // Accessible helper class
+    const srOnlyStyle = document.createElement('style');
+    srOnlyStyle.textContent = `.visually-hidden{position:absolute !important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}`;
+    document.head.appendChild(srOnlyStyle);
+
+    // --- Data: add/modify documents here ---
+    // Place real files under /docs/ and update the URLs accordingly.
+    const documents = [
+      {
+        id: 'nda-mutual',
+        title: 'Mutual Non‑Disclosure Agreement (NDA)',
+        kind: 'Contract',
+        description: 'Mutual confidentiality obligations between both parties.',
+        tags: ['NDA','Confidentiality','Business'],
+        category: 'Business',
+        updated: '2025-06-02',
+        downloads: 761,
+        files: [
+          { label: 'PDF', href: '/docs/nda-mutual.pdf' },
+        ]
+      }
+    ];
+
+    const categories = [
+      'All',
+      'Onboarding',
+      'Business',
+      'Corporate',
+      'Estate Planning',
+      'Litigation'
+    ];
+
+    // --- DOM refs ---
+    const grid = document.getElementById('grid');
+    const chips = document.getElementById('chips');
+    const q = document.getElementById('q');
+    const clearBtn = document.getElementById('clearSearch');
+    const sortSel = document.getElementById('sortSel');
+    const resultsCount = document.getElementById('results-count');
+
+    // Build category chips
+    let activeCategory = 'All';
+    function renderChips(){
+      chips.innerHTML = '';
+      categories.forEach(cat => {
+        const btn = document.createElement('button');
+        btn.className = 'chip';
+        btn.type = 'button';
+        btn.setAttribute('aria-pressed', cat === activeCategory ? 'true' : 'false');
+        btn.textContent = cat;
+        btn.addEventListener('click', () => {
+          activeCategory = cat;
+          renderChips();
+          render();
+        });
+        chips.appendChild(btn);
+      });
+    }
+
+    // Utilities
+    function matchesQuery(doc, term){
+      if (!term) return true;
+      const hay = (doc.title + ' ' + doc.description + ' ' + doc.tags.join(' ')).toLowerCase();
+      return hay.includes(term.toLowerCase());
+    }
+    function inCategory(doc, cat){
+      return cat === 'All' || doc.category === cat;
+    }
+    function sortDocs(list){
+      const mode = sortSel.value;
+      if (mode === 'az') return list.sort((a,b)=> a.title.localeCompare(b.title));
+      if (mode === 'downloads') return list.sort((a,b)=> b.downloads - a.downloads);
+      // recent
+      return list.sort((a,b)=> new Date(b.updated) - new Date(a.updated));
+    }
+
+    function render(){
+      const term = q.value.trim();
+      const filtered = sortDocs(documents.filter(d => matchesQuery(d, term) && inCategory(d, activeCategory)));
+
+      resultsCount.textContent = filtered.length
+        ? `${filtered.length} document${filtered.length===1?'':'s'} found`
+        : `No documents found. Try a different search or category.`;
+
+      grid.innerHTML = '';
+      filtered.forEach(doc => grid.appendChild(cardFor(doc)));
+    }
+
+    function cardFor(doc){
+      const card = document.createElement('article');
+      card.className = 'card';
+      card.setAttribute('aria-labelledby', `${doc.id}-title`);
+
+      const kind = elt('div', 'kind', doc.kind);
+      const h = elt('h3', 'doc-title', doc.title); h.id = `${doc.id}-title`;
+      const meta = elt('div', 'meta', `Updated ${new Date(doc.updated).toLocaleDateString()} · ${doc.downloads} downloads`);
+
+      const tags = elt('div', 'tags');
+      doc.tags.forEach(t => tags.appendChild(elt('span', 'tag', t)));
+
+      const actions = elt('div', 'actions');
+      doc.files.forEach(file => {
+        const a = document.createElement('a');
+        a.href = file.href; a.className = 'btn'; a.textContent = `Download ${file.label}`;
+        a.setAttribute('download', '');
+        a.setAttribute('aria-label', `Download ${doc.title} as ${file.label}`);
+        actions.appendChild(a);
+      });
+      const more = document.createElement('a');
+      more.href = `mailto:documents@tranwonglaw.com?subject=Question about ${encodeURIComponent(doc.title)}`;
+      const moreBtn = elt('button', 'btn secondary', 'Ask a question');
+      more.appendChild(moreBtn);
+      actions.appendChild(more);
+
+      card.append(kind, h, meta, tags, actions);
+      return card;
+    }
+
+    function elt(tag, cls, text){
+      const e = document.createElement(tag);
+      if (cls) e.className = cls;
+      if (text) e.textContent = text;
+      return e;
+    }
+
+    // Search handlers
+    q.addEventListener('input', render);
+    clearBtn.addEventListener('click', () => { q.value=''; q.focus(); render(); });
+    sortSel.addEventListener('change', render);
+
+    // Request form (mailto fallback)
+    document.getElementById('requestForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const detail = document.getElementById('detail').value.trim();
+      const status = document.getElementById('reqStatus');
+      const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0ARequest:%0D%0A${encodeURIComponent(detail)}`;
+      const mailto = `mailto:documents@tranwonglaw.com?subject=Document Request&body=${body}`;
+      status.textContent = 'Opening your email client…';
+      window.location.href = mailto;
+      setTimeout(()=> status.textContent = 'If your email client did not open, please email documents@tranwonglaw.com.', 1500);
+    });
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Init
+    renderChips();
+    render();
+  </script>
+</body>
+</html>
