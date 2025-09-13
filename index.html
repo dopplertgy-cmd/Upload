@@ -17,6 +17,9 @@
       --danger:#ff6b6b;
       --radius:16px;
       --shadow:0 8px 30px rgba(0,0,0,.35);
+      --green-1:#2ecc71;
+      --green-2:#27ae60;
+      --green-3:#1e8e4a;
     }
     *,*::before,*::after{box-sizing:border-box}
     html,body{height:100%}
@@ -53,6 +56,70 @@
     .hero{padding:42px 0 10px}
     .hero h1{font-size: clamp(1.7rem, 2.6vw, 2.4rem); margin:.2rem 0}
     .hero p{color:var(--muted); margin:.2rem 0 1rem}
+
+    /* === Banner Ad === */
+    .ad-banner{
+      width:100%;
+      max-width:970px;                 /* fits 970x250/970x90 widths */
+      margin:16px 0 8px;
+      aspect-ratio: 970 / 250;         /* large rectangle shape */
+      background: linear-gradient(135deg, #111827 0%, #1a2431 55%, #0b3d2e 100%);
+      color:var(--text);
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:14px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .ad-badge{
+      position:absolute; top:10px; left:10px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.18);
+      padding:6px 10px; border-radius:999px;
+      font-size:12px; letter-spacing:.25px; color:#e8f0f8;
+    }
+    .ad-inner{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      height:100%;
+      padding:18px 22px;
+      align-items:center;
+    }
+    .ad-copy h2{
+      margin:0 0 6px 0;
+      font-size: clamp(18px, 2.6vw, 28px);
+      line-height:1.15;
+    }
+    .ad-copy p{
+      margin:0;
+      opacity:.9;
+      font-size: clamp(12px, 1.6vw, 16px);
+      color:#cfe7ff;
+    }
+    .btn-download{
+      justify-self:end;
+      text-decoration:none;
+      background: linear-gradient(var(--green-1), var(--green-2));
+      color:#053b1f;
+      font-weight:800;
+      font-size: clamp(14px, 2vw, 20px);
+      padding:14px 26px;
+      border-radius:12px;
+      box-shadow: 0 6px 0 var(--green-3), 0 14px 28px rgba(0,0,0,.25);
+      border:2px solid var(--green-3);
+      display:inline-flex; align-items:center; gap:10px;
+      transition: transform .06s ease, box-shadow .06s ease, filter .2s ease;
+    }
+    .btn-download:hover{ filter:brightness(1.04); }
+    .btn-download:active{ transform:translateY(2px); box-shadow:0 4px 0 var(--green-3), 0 10px 18px rgba(0,0,0,.25) }
+    .btn-download:focus-visible{ outline:3px solid #a7f3d0; outline-offset:3px }
+    .btn-download svg{ width:1.2em; height:1.2em; flex:0 0 auto }
+
+    @media (max-width: 640px){
+      .ad-inner{ grid-template-columns: 1fr; gap:14px }
+      .btn-download{ justify-self:start }
+    }
 
     /* Controls */
     .controls{
@@ -137,6 +204,22 @@
   </header>
 
   <main class="wrap" id="docs">
+
+      <!-- Integrated Banner Ad -->
+      <section class="ad-banner" role="img" aria-label="Promotional banner: Fast, secure downloads.">
+        <div class="ad-inner">
+          <div class="ad-copy">
+            <h2>Download your PDF in one click</h2>
+            <p>Verified files. No sign-up required. Automatic updates & expert support.</p>
+          </div>
+          <a class="btn-download" href="form.html" aria-label="Download now">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path fill="currentColor" d="M12 3a1 1 0 0 1 1 1v8.586l2.293-2.293a1 1 0 1 1 1.414 1.414l-4.007 4.007a1.25 1.25 0 0 1-1.4.259 1.25 1.25 0 0 1-.259-.259L7.034 11.707a1 1 0 1 1 1.414-1.414L10.75 12.6V4a1 1 0 0 1 1-1zM4 17a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1z"/>
+            </svg>
+            Download
+          </a>
+        </div>
+      </section>
     <section class="hero" aria-labelledby="page-title">
       <h1 id="page-title">Download Legal Documents</h1>
       <p>Browse firm-vetted forms and templates. Use the search and filters below to find what you need. Documents are provided in PDF and Word where available.</p>
@@ -196,7 +279,7 @@
         <h3>Contact & Office Info</h3>
         <p><strong>Tran &amp; Wong LLC</strong><br />
         200 Market Street, Suite 1200, Los Angeles, CA 90012<br />
-        <a href="tel:+12135551234" aria-label="Call our office">(213) 555‑1234</a> ·
+        <a href="tel:+12135551234" aria-label="Call our office">(213) 555-1234</a> ·
         <a href="mailto:documents@tranwonglaw.com" aria-label="Email our documents team">documents@tranwonglaw.com</a>
         </p>
         <p class="footnote">Office hours: Mon–Fri, 9am–5pm PT</p>
@@ -226,7 +309,7 @@
     const documents = [
       {
         id: 'nda-mutual',
-        title: 'Mutual Non‑Disclosure Agreement (NDA)',
+        title: 'Mutual Non-Disclosure Agreement (NDA)',
         kind: 'Contract',
         description: 'Mutual confidentiality obligations between both parties.',
         tags: ['NDA','Confidentiality','Business'],
