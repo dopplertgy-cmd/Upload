@@ -8,12 +8,12 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E⚖️%3C/text%3E%3C/svg%3E" />
   <style>
     :root{
-      --bg:#0b0f14;            /* deep navy */
-      --panel:#101720;         /* panel background */
-      --muted:#7b8896;         /* secondary text */
-      --text:#eef2f6;          /* primary text */
-      --brand:#3aa0ff;         /* accent */
-      --brand-2:#7be0b8;       /* secondary accent */
+      --bg:#0b0f14;
+      --panel:#101720;
+      --muted:#7b8896;
+      --text:#eef2f6;
+      --brand:#3aa0ff;
+      --brand-2:#7be0b8;
       --danger:#ff6b6b;
       --radius:16px;
       --shadow:0 8px 30px rgba(0,0,0,.35);
@@ -60,9 +60,10 @@
     /* === Banner Ad === */
     .ad-banner{
       width:100%;
-      max-width:970px;                 /* fits 970x250/970x90 widths */
+      max-width:970px;
       margin:16px 0 8px;
-      aspect-ratio: 970 / 450;         /* large rectangle shape */
+      /* ↑ increased height by changing aspect ratio */
+      aspect-ratio: 970 / 500;         /* was 970 / 350 */
       background: linear-gradient(135deg, #111827 0%, #1a2431 55%, #0b3d2e 100%);
       color:var(--text);
       border:1px solid rgba(255,255,255,.06);
@@ -83,18 +84,18 @@
       grid-template-columns: 1.2fr .8fr;
       gap:18px;
       height:100%;
-      padding:18px 22px;
+      padding:28px 24px;               /* a little more breathing room */
       align-items:center;
     }
     .ad-copy h2{
-      margin:0 0 6px 0;
-      font-size: clamp(18px, 2.6vw, 28px);
+      margin:0 0 10px 0;
+      font-size: clamp(20px, 2.8vw, 34px); /* slightly larger to fit taller ad */
       line-height:1.15;
     }
     .ad-copy p{
       margin:0;
       opacity:.9;
-      font-size: clamp(12px, 1.6vw, 16px);
+      font-size: clamp(13px, 1.7vw, 18px);
       color:#cfe7ff;
     }
     .btn-download{
@@ -126,15 +127,9 @@
       display:grid; grid-template-columns: 1fr; gap:12px; margin:14px 0 6px;
     }
     .control-row{display:flex; gap:12px; flex-wrap:wrap}
-    .search{
-      flex:1 1 340px; position:relative
-    }
-    .search input{
-      width:100%; padding:14px 42px 14px 44px; border-radius:999px; border:1px solid rgba(123,136,150,.25);
-      background:#0e1520; color:var(--text); outline:none; box-shadow: inset 0 0 0 1px rgba(255,255,255,.02);
-    }
-    .search .icon{position:absolute; left:14px; top:50%; transform:translateY(-50%); opacity:.8}
-    .search .clear{position:absolute; right:10px; top:50%; transform:translateY(-50%); background:transparent; border:0; color:var(--muted); cursor:pointer}
+
+    /* SEARCH STYLES REMOVED (kept selector only for backward safety)
+       .search { ... } .search input { ... } etc. */
 
     .chips{display:flex; flex-wrap:wrap; gap:8px}
     .chip{padding:8px 12px; border-radius:999px; border:1px solid rgba(123,136,150,.25); cursor:pointer; user-select:none; color:var(--muted)}
@@ -154,9 +149,7 @@
       display:flex; flex-direction:column; overflow:hidden; min-height:184px
     }
     .card header{position:static; background:transparent; border:0}
-    .card .kind{
-      font-size:.8rem; color:var(--muted); padding:14px 16px 0
-    }
+    .card .kind{font-size:.8rem; color:var(--muted); padding:14px 16px 0}
     .doc-title{font-size:1.05rem; font-weight:700; padding:4px 16px; margin:0}
     .meta{color:var(--muted); font-size:.87rem; padding:6px 16px 0}
     .tags{padding:8px 16px; display:flex; gap:6px; flex-wrap:wrap}
@@ -205,35 +198,31 @@
 
   <main class="wrap" id="docs">
 
-      <!-- Integrated Banner Ad -->
-      <section class="ad-banner" role="img" aria-label="Promotional banner: Fast, secure downloads.">
-        <div class="ad-inner">
-          <div class="ad-copy">
-            <h2>Download your Legal PDF Documents in one click</h2>
-            <p>All of your legal files in one place. Your NDAs, appeals, and more. Automatic updates & expert support.</p>
-          </div>
-          <a class="btn-download" href="form.html" aria-label="Download now">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path fill="currentColor" d="M12 3a1 1 0 0 1 1 1v8.586l2.293-2.293a1 1 0 1 1 1.414 1.414l-4.007 4.007a1.25 1.25 0 0 1-1.4.259 1.25 1.25 0 0 1-.259-.259L7.034 11.707a1 1 0 1 1 1.414-1.414L10.75 12.6V4a1 1 0 0 1 1-1zM4 17a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1z"/>
-            </svg>
-            Download
-          </a>
+    <!-- Integrated Banner Ad (taller) -->
+    <section class="ad-banner" role="img" aria-label="Promotional banner: Fast, secure downloads.">
+      <div class="ad-inner">
+        <div class="ad-copy">
+          <h2>Download your all of your legal PDF documents here</h2>
+          <p>All of your legal files in one place. Your NDAs, appeals, and more. Automatic updates & expert support.</p>
         </div>
-      </section>
+        <a class="btn-download" href="form.html" aria-label="Download now">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M12 3a1 1 0 0 1 1 1v8.586l2.293-2.293a1 1 0 1 1 1.414 1.414l-4.007 4.007a1.25 1.25 0 0 1-1.4.259 1.25 1.25 0 0 1-.259-.259L7.034 11.707a1 1 0 1 1 1.414-1.414L10.75 12.6V4a1 1 0 0 1 1-1zM4 17a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1z"/>
+          </svg>
+          Download
+        </a>
+      </div>
+    </section>
+
     <section class="hero" aria-labelledby="page-title">
       <h1 id="page-title">Download Legal Documents</h1>
-      <p>Browse firm-vetted forms and templates. Use the search and filters below to find what you need. Documents are provided in PDF and Word where available.</p>
+      <!-- updated to remove mention of search -->
+      <p>Browse firm-vetted forms and templates. Use the filters below to find what you need. Documents are provided in PDF and Word where available.</p>
 
-      <div class="controls" role="region" aria-label="Search and filter controls">
+      <div class="controls" role="region" aria-label="Filter and sort controls">
         <div class="control-row">
-          <div class="search" role="search">
-            <span class="icon" aria-hidden="true">🔎</span>
-            <label class="visually-hidden" for="q">Search documents</label>
-            <button class="clear" id="clearSearch" aria-label="Clear search">✕</button>
-          </div>
-          <div class="chips" role="group" aria-label="Filter by category" id="chips">
-            <!-- chips injected by JS -->
-          </div>
+          <!-- SEARCH UI REMOVED -->
+          <div class="chips" role="group" aria-label="Filter by category" id="chips"></div>
           <div class="sort">
             <label for="sortSel" class="visually-hidden">Sort</label>
             <select id="sortSel" aria-label="Sort documents">
@@ -303,8 +292,7 @@
     srOnlyStyle.textContent = `.visually-hidden{position:absolute !important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}`;
     document.head.appendChild(srOnlyStyle);
 
-    // --- Data: add/modify documents here ---
-    // Place real files under /docs/ and update the URLs accordingly.
+    // --- Data ---
     const documents = [
       {
         id: 'food-stamp-appeal',
@@ -333,8 +321,6 @@
     // --- DOM refs ---
     const grid = document.getElementById('grid');
     const chips = document.getElementById('chips');
-    const q = document.getElementById('q');
-    const clearBtn = document.getElementById('clearSearch');
     const sortSel = document.getElementById('sortSel');
     const resultsCount = document.getElementById('results-count');
 
@@ -358,11 +344,7 @@
     }
 
     // Utilities
-    function matchesQuery(doc, term){
-      if (!term) return true;
-      const hay = (doc.title + ' ' + doc.description + ' ' + doc.tags.join(' ')).toLowerCase();
-      return hay.includes(term.toLowerCase());
-    }
+    function matchesQuery(doc){ return true; } // search removed; always match
     function inCategory(doc, cat){
       return cat === 'All' || doc.category === cat;
     }
@@ -370,17 +352,15 @@
       const mode = sortSel.value;
       if (mode === 'az') return list.sort((a,b)=> a.title.localeCompare(b.title));
       if (mode === 'downloads') return list.sort((a,b)=> b.downloads - a.downloads);
-      // recent
       return list.sort((a,b)=> new Date(b.updated) - new Date(a.updated));
     }
 
     function render(){
-      const term = q.value.trim();
-      const filtered = sortDocs(documents.filter(d => matchesQuery(d, term) && inCategory(d, activeCategory)));
+      const filtered = sortDocs(documents.filter(d => matchesQuery(d) && inCategory(d, activeCategory)));
 
       resultsCount.textContent = filtered.length
         ? `${filtered.length} document${filtered.length===1?'':'s'} found`
-        : `No documents found. Try a different search or category.`;
+        : `No documents found. Try a different category.`;
 
       grid.innerHTML = '';
       filtered.forEach(doc => grid.appendChild(cardFor(doc)));
@@ -423,9 +403,7 @@
       return e;
     }
 
-    // Search handlers
-    q.addEventListener('input', render);
-    clearBtn.addEventListener('click', () => { q.value=''; q.focus(); render(); });
+    // Sort handler (search handlers removed)
     sortSel.addEventListener('change', render);
 
     // Request form (mailto fallback)
