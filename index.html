@@ -62,7 +62,7 @@
       width:100%;
       max-width:970px;                 /* fits 970x250/970x90 widths */
       margin:16px 0 8px;
-      aspect-ratio: 970 / 350;         /* large rectangle shape */
+      aspect-ratio: 970 / 450;         /* large rectangle shape */
       background: linear-gradient(135deg, #111827 0%, #1a2431 55%, #0b3d2e 100%);
       color:var(--text);
       border:1px solid rgba(255,255,255,.06);
@@ -229,7 +229,6 @@
           <div class="search" role="search">
             <span class="icon" aria-hidden="true">🔎</span>
             <label class="visually-hidden" for="q">Search documents</label>
-            <input id="q" type="search" placeholder="Search by name, tag, or description…" autocomplete="off" aria-describedby="results-count" />
             <button class="clear" id="clearSearch" aria-label="Clear search">✕</button>
           </div>
           <div class="chips" role="group" aria-label="Filter by category" id="chips">
