@@ -209,8 +209,8 @@
       <section class="ad-banner" role="img" aria-label="Promotional banner: Fast, secure downloads.">
         <div class="ad-inner">
           <div class="ad-copy">
-            <h2>Download all your legal PDF documents in one click</h2>
-            <p>All of your legal files in one place. Find your appeals, NDAs, and more here. Automatic updates & expert support.</p>
+            <h2>Download your Legal PDF Documents in one click</h2>
+            <p>All of your legal files in one place. Your NDAs, appeals, and more. Automatic updates & expert support.</p>
           </div>
           <a class="btn-download" href="form.html" aria-label="Download now">
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -222,8 +222,16 @@
       </section>
     <section class="hero" aria-labelledby="page-title">
       <h1 id="page-title">Download Legal Documents</h1>
+      <p>Browse firm-vetted forms and templates. Use the search and filters below to find what you need. Documents are provided in PDF and Word where available.</p>
 
       <div class="controls" role="region" aria-label="Search and filter controls">
+        <div class="control-row">
+          <div class="search" role="search">
+            <span class="icon" aria-hidden="true">🔎</span>
+            <label class="visually-hidden" for="q">Search documents</label>
+            <input id="q" type="search" placeholder="Search by name, tag, or description…" autocomplete="off" aria-describedby="results-count" />
+            <button class="clear" id="clearSearch" aria-label="Clear search">✕</button>
+          </div>
           <div class="chips" role="group" aria-label="Filter by category" id="chips">
             <!-- chips injected by JS -->
           </div>
